@@ -3,129 +3,597 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyber Breakfasts Koh Phangan | Ethical Hacking & AI Retreat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>VAULT-TEC SECURITY | Cybersecurity Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+/* === FALLOUT 2 CYBERSECURITY SITE === */
+:root {
+  --green: #1eff00;
+  --green-dim: #0d6b00;
+  --amber: #ffb000;
+  --bg-dark: #0a0f0a;
+  --bg-mid: #141914;
+  --bg-card: #0d130d;
+  --border: #1eff00;
+  --text: #1eff00;
+  --text-dim: #0d6b00;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  background: var(--bg-dark);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+}
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+  z-index: 9999;
+}
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px);
+  pointer-events: none;
+  z-index: 9998;
+}
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+h2 { font-size: 1.5rem; margin-bottom: 2rem; color: var(--amber); }
+.bracket { color: var(--green-dim); }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-mid);
+  border-bottom: 3px solid var(--border);
+  box-shadow: 0 0 20px rgba(30, 255, 0, 0.2);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+}
+.logo-bracket { color: var(--amber); }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.nav-links a:hover { color: var(--amber); text-shadow: 0 0 10px var(--amber); }
+.btn-pipboy {
+  background: var(--amber);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.btn-pipboy:hover { background: #ffc933; box-shadow: 0 0 20px rgba(255, 176, 0, 0.5); }
+.hero { padding: 4rem 2rem 3rem; position: relative; }
+.hero-frame {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem;
+  border: 4px solid var(--border);
+  position: relative;
+  box-shadow: inset 0 0 60px rgba(30, 255, 0, 0.05), 0 0 40px rgba(30, 255, 0, 0.1);
+}
+.hero-frame .corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--amber);
+}
+.hero-frame .corner.tl { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+.hero-frame .corner.tr { top: -3px; right: -3px; border-left: none; border-bottom: none; }
+.hero-frame .corner.bl { bottom: -3px; left: -3px; border-right: none; border-top: none; }
+.hero-frame .corner.br { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+.hero-content { text-align: center; }
+.hero-tag { color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0.5rem 0 1rem; text-shadow: 0 0 30px rgba(30, 255, 0, 0.3); }
+.hero-sub { color: var(--amber); font-size: 1rem; margin-bottom: 1.5rem; }
+.hero-desc { color: var(--text-dim); margin-bottom: 2rem; font-size: 0.95rem; }
+.btn-amber {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--bg-dark);
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.btn-amber:hover { background: #ffc933; box-shadow: 0 0 25px rgba(255, 176, 0, 0.5); }
+.btn-block { width: 100%; text-align: center; }
+.status-bar {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 0.2em;
+}
+.status-bar span { margin: 0 0.5rem; }
+.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-alt { background: var(--bg-mid); }
+.section-frame { border-left: 4px solid var(--border); padding-left: 2rem; }
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.card {
+  background: var(--bg-card);
+  border: 2px solid var(--green-dim);
+  padding: 2rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover { border-color: var(--green); box-shadow: 0 0 20px rgba(30, 255, 0, 0.15); }
+.card-header {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--amber);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+.card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; }
+.card-tag { font-size: 0.75rem; color: var(--text-dim); }
+.terminal {
+  border: 3px solid var(--border);
+  max-width: 600px;
+  overflow: hidden;
+}
+.terminal-bar {
+  background: var(--bg-card);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  border-bottom: 2px solid var(--green-dim);
+}
+.terminal-status { color: var(--text-dim); }
+.terminal-body { padding: 1.5rem; margin: 0; font-size: 0.9rem; color: var(--text); line-height: 1.8; }
+.about-block { max-width: 600px; }
+.about-block p { color: var(--text-dim); margin-bottom: 1rem; }
+.about-tag { font-size: 0.85rem; color: var(--amber) !important; }
+.contact-form { max-width: 500px; }
+.form-row { margin-bottom: 1.5rem; }
+.form-row label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--bg-card);
+  border: 2px solid var(--green-dim);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 10px rgba(30, 255, 0, 0.2);
+}
+.form-row textarea { resize: vertical; min-height: 100px; }
+.footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 2px solid var(--green-dim);
+  background: var(--bg-mid);
+}
+.footer-inner { max-width: 600px; margin: 0 auto; }
+.footer p { margin: 0.3rem 0; font-size: 0.85rem; color: var(--text-dim); }
+.footer-tag { font-size: 0.75rem !important; }
+.pipboy-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  max-height: 500px;
+  z-index: 2000;
+  border: 4px solid var(--amber);
+  background: var(--bg-dark);
+  box-shadow: 0 0 30px rgba(255, 176, 0, 0.3), inset 0 0 40px rgba(0,0,0,0.5);
+  display: none;
+}
+.pipboy-widget.open {
+  display: block;
+  animation: pipboy-open 0.3s ease;
+}
+@keyframes pipboy-open {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.pipboy-frame { display: flex; flex-direction: column; height: 500px; }
+.pipboy-header {
+  background: var(--bg-mid);
+  padding: 1rem;
+  border-bottom: 2px solid var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pipboy-header span:first-child {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+.pipboy-sub { font-size: 0.75rem; color: var(--text-dim); }
+.pipboy-close {
+  background: transparent;
+  border: 2px solid var(--amber);
+  color: var(--amber);
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pipboy-close:hover { background: var(--amber); color: var(--bg-dark); }
+.pipboy-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.pipboy-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pipboy-messages::-webkit-scrollbar { width: 6px; }
+.pipboy-messages::-webkit-scrollbar-track { background: var(--bg-card); }
+.pipboy-messages::-webkit-scrollbar-thumb { background: var(--green-dim); }
+.msg {
+  padding: 0.8rem;
+  border-left: 3px solid var(--green-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.msg.user { border-left-color: var(--amber); color: var(--amber); }
+.msg.assistant { border-left-color: var(--green); }
+.msg.system { border-left-color: var(--text-dim); color: var(--text-dim); font-size: 0.85rem; }
+.msg-label { display: block; font-size: 0.75rem; margin-bottom: 0.3rem; }
+.msg.loading .msg-label::after { content: '...'; animation: dots 1.5s infinite; }
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+.pipboy-input-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-top: 2px solid var(--green-dim);
+  background: var(--bg-mid);
+}
+.pipboy-input-form input {
+  flex: 1;
+  padding: 0.7rem;
+  background: var(--bg-card);
+  border: 2px solid var(--green-dim);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+.pipboy-input-form input:focus { outline: none; border-color: var(--green); }
+.btn-send {
+  background: var(--amber);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-send:hover { background: #ffc933; }
+@media (max-width: 768px) {
+  .nav-inner { flex-direction: column; align-items: flex-start; }
+  .nav-links { width: 100%; }
+  .hero-frame { padding: 2rem 1.5rem; }
+  .section-frame { padding-left: 1rem; }
+  .pipboy-widget { width: calc(100% - 40px); max-width: 380px; bottom: 10px; right: 10px; }
+}
   </style>
 </head>
-<body class="bg-gray-950 text-white">
+<body>
 
-  <!-- NAVBAR -->
-  <nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
-    <h1 class="text-2xl font-bold">Cyber Breakfasts</h1>
-    <div class="space-x-6 hidden md:block">
-      <a href="#program" class="hover:text-yellow-400">Program</a>
-      <a href="#about" class="hover:text-yellow-400">About</a>
-      <a href="#pricing" class="hover:text-yellow-400">Pricing</a>
-      <a href="#apply" class="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-yellow-300">Apply</a>
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span> VT-SEC <span class="logo-bracket">]</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">SERVICES</a>
+        <a href="#threats">THREAT LOG</a>
+        <a href="#about">PERSONNEL</a>
+        <a href="#contact">CONTACT</a>
+        <button class="btn-pipboy" id="open-pipboy">PIP-BOY ASSISTANT</button>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="text-center py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
-    <h2 class="text-5xl md:text-6xl font-extrabold mb-6">
-      Ethical Hacking & AI Retreat
-    </h2>
-    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-      A 4-week immersive cybersecurity & AI program in Koh Phangan for entrepreneurs and digital nomads.
-    </p>
-    <a href="#apply" class="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-bold text-lg hover:bg-yellow-300 transition">
-      Reserve Your Spot
-    </a>
-  </section>
-
-  <!-- PROGRAM -->
-  <section id="program" class="py-20 px-6 max-w-6xl mx-auto">
-    <h3 class="text-4xl font-bold text-center mb-12">What You'll Learn</h3>
-
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-semibold mb-4">🛡 Ethical Hacking</h4>
-        <p class="text-gray-400">
-          Learn penetration testing fundamentals in controlled lab environments.
+  <header class="hero">
+    <div class="hero-frame">
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+      <div class="hero-content">
+        <p class="hero-tag">// VAULT-TEC SECURITY DIVISION //</p>
+        <h1>CYBERSECURITY SPECIALIST</h1>
+        <p class="hero-sub">Securing the digital wasteland since 2077</p>
+        <p class="hero-desc">
+          Penetration testing. Threat intelligence. Incident response.<br>
+          Your systems. Our vault.
         </p>
+        <a href="#contact" class="btn-amber">REQUEST BRIEFING</a>
       </div>
+    </div>
+    <div class="status-bar">
+      <span>[ ONLINE ]</span>
+      <span>|</span>
+      <span>SECURE CHANNEL</span>
+      <span>|</span>
+      <span id="vault-time">--:--:--</span>
+    </div>
+  </header>
 
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-semibold mb-4">🤖 AI Automation</h4>
-        <p class="text-gray-400">
-          Build GPT workflows, automate tasks, and create intelligent business systems.
-        </p>
-      </div>
-
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-semibold mb-4">🔐 Cybersecurity for Startups</h4>
-        <p class="text-gray-400">
-          Protect your business, data, and digital assets with real-world security strategies.
-        </p>
+  <section id="services" class="section">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">PENETRATION TESTING</div>
+          <p>Controlled breach simulations. Find vulnerabilities before raiders do.</p>
+          <span class="card-tag">[ RED TEAM ]</span>
+        </div>
+        <div class="card">
+          <div class="card-header">THREAT INTELLIGENCE</div>
+          <p>Monitor the wasteland. Early warning on emerging threat actors.</p>
+          <span class="card-tag">[ S.C.O.P.E ]</span>
+        </div>
+        <div class="card">
+          <div class="card-header">INCIDENT RESPONSE</div>
+          <p>When breach occurs. Contain. Eradicate. Recover. Document.</p>
+          <span class="card-tag">[ I.R.T ]</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- BREAKFAST FORMAT -->
-  <section class="bg-gray-900 py-20 px-6 text-center">
-    <h3 class="text-4xl font-bold mb-10">Business Breakfast Format</h3>
-    <div class="max-w-3xl mx-auto space-y-4 text-gray-300 text-lg">
-      <p>🥐 Networking Breakfast</p>
-      <p>🎤 60-Minute Live Workshop</p>
-      <p>💻 90-Minute Hands-On Lab</p>
-      <p>🧠 Mastermind & Discussion</p>
+  <section id="threats" class="section section-alt">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> THREAT LOG <span class="bracket">]</span></h2>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span>THREAT_LOG.TXT</span>
+          <span class="terminal-status">READ ONLY</span>
+        </div>
+        <pre class="terminal-body">
+&gt; Initializing threat assessment...
+&gt; [OK] Ransomware activity: ELEVATED
+&gt; [OK] Phishing campaigns: PERSISTENT
+&gt; [OK] Supply chain attacks: INCREASING
+&gt; ----------------------------------------
+&gt; Recommendation: Request VAULT-TEC briefing.
+        </pre>
+      </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center">
-    <h3 class="text-4xl font-bold mb-8">Why Koh Phangan?</h3>
-    <p class="text-gray-400 text-lg leading-relaxed">
-      Surrounded by tropical beaches and a thriving digital nomad community,
-      Koh Phangan provides the perfect environment for deep learning,
-      networking, and transformation.
-    </p>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="bg-gray-900 py-20 px-6 text-center">
-    <h3 class="text-4xl font-bold mb-12">Investment</h3>
-
-    <div class="max-w-md mx-auto bg-gray-800 p-10 rounded-3xl shadow-xl">
-      <h4 class="text-3xl font-bold mb-4">$3,000</h4>
-      <p class="text-gray-400 mb-6">4-Week Immersive Program</p>
-      <ul class="text-gray-300 space-y-3 mb-8">
-        <li>✔ 22 Students Maximum</li>
-        <li>✔ Daily Workshops</li>
-        <li>✔ Hands-On Labs</li>
-        <li>✔ Networking Breakfasts</li>
-      </ul>
-      <a href="#apply" class="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300">
-        Apply Now
-      </a>
+  <section id="about" class="section">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> PERSONNEL <span class="bracket">]</span></h2>
+      <div class="about-block">
+        <p>
+          Certified ethical hackers. Former red-team operators. Vault-certified.
+          We operate in controlled environments only. No collateral damage.
+        </p>
+        <p class="about-tag">[ CLEARANCE: VAULT-LEVEL ]</p>
+      </div>
     </div>
   </section>
 
-  <!-- APPLY -->
-  <section id="apply" class="py-20 px-6 text-center max-w-4xl mx-auto">
-    <h3 class="text-4xl font-bold mb-8">Apply for the Next Cohort</h3>
-    <p class="text-gray-400 mb-8">
-      Limited to 22 participants. Secure your place in paradise.
-    </p>
-
-    <form class="grid gap-6 max-w-xl mx-auto">
-      <input type="text" placeholder="Full Name" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400">
-      <input type="email" placeholder="Email Address" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400">
-      <textarea placeholder="Tell us about yourself" rows="4" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400"></textarea>
-      <button type="submit" class="bg-yellow-400 text-black py-4 rounded-xl font-bold hover:bg-yellow-300 transition">
-        Submit Application
-      </button>
-    </form>
+  <section id="contact" class="section section-alt">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> REQUEST BRIEFING <span class="bracket">]</span></h2>
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <label>IDENTIFICATION</label>
+          <input type="text" name="name" placeholder="Enter full name" required />
+        </div>
+        <div class="form-row">
+          <label>SECURE CHANNEL</label>
+          <input type="email" name="email" placeholder="Enter email" required />
+        </div>
+        <div class="form-row">
+          <label>MESSAGE</label>
+          <textarea name="message" rows="4" placeholder="Describe your security needs..." required></textarea>
+        </div>
+        <button type="submit" class="btn-amber btn-block">TRANSMIT REQUEST</button>
+      </form>
+    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-950 py-10 text-center text-gray-500">
-    <p>© 2026 Cyber Breakfasts Koh Phangan. All rights reserved.</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>VAULT-TEC SECURITY | CYBERSECURITY SPECIALIST</p>
+      <p class="footer-tag">[ PROPRIETARY - CLASSIFIED ]</p>
+    </div>
   </footer>
 
+  <div class="pipboy-widget" id="pipboy-widget">
+    <div class="pipboy-frame">
+      <div class="pipboy-header">
+        <span>PIP-BOY ASSISTANT</span>
+        <span class="pipboy-sub">// Claude AI //</span>
+        <button class="pipboy-close" id="close-pipboy">&times;</button>
+      </div>
+      <div class="pipboy-body">
+        <div class="pipboy-messages" id="pipboy-messages">
+          <div class="msg system">
+            <span class="msg-label">[ SYSTEM ]</span>
+            VAULT-TEC AI consultant online. Ask about cybersecurity, threats, or how we can help.
+          </div>
+        </div>
+        <form class="pipboy-input-form" id="pipboy-form">
+          <input type="text" id="pipboy-input" placeholder="Type message..." autocomplete="off" />
+          <button type="submit" class="btn-send">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const API_BASE = window.location.hostname.includes('github.io')
+  ? 'https://swabird-api.onrender.com'
+  : '';
+
+function updateVaultTime() {
+  const el = document.getElementById('vault-time');
+  if (!el) return;
+  const now = new Date();
+  el.textContent = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+}
+setInterval(updateVaultTime, 1000);
+updateVaultTime();
+
+const pipboyWidget = document.getElementById('pipboy-widget');
+const pipboyOpenBtn = document.getElementById('open-pipboy');
+const pipboyCloseBtn = document.getElementById('close-pipboy');
+const pipboyForm = document.getElementById('pipboy-form');
+const pipboyInput = document.getElementById('pipboy-input');
+const pipboyMessages = document.getElementById('pipboy-messages');
+
+if (pipboyOpenBtn) {
+  pipboyOpenBtn.addEventListener('click', () => {
+    if (pipboyWidget) pipboyWidget.classList.add('open');
+    pipboyInput?.focus();
+  });
+}
+if (pipboyCloseBtn) {
+  pipboyCloseBtn.addEventListener('click', () => {
+    if (pipboyWidget) pipboyWidget.classList.remove('open');
+  });
+}
+
+function addMessage(text, role = 'assistant', label = '') {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  if (label) {
+    const lbl = document.createElement('span');
+    lbl.className = 'msg-label';
+    lbl.textContent = label;
+    div.appendChild(lbl);
+  }
+  const content = document.createElement('span');
+  content.textContent = text;
+  div.appendChild(content);
+  pipboyMessages?.appendChild(div);
+  pipboyMessages?.scrollTo({ top: pipboyMessages.scrollHeight, behavior: 'smooth' });
+}
+
+function addLoadingMessage() {
+  const div = document.createElement('div');
+  div.className = 'msg assistant loading';
+  div.id = 'msg-loading';
+  const lbl = document.createElement('span');
+  lbl.className = 'msg-label';
+  lbl.textContent = '[ ASSISTANT ]';
+  div.appendChild(lbl);
+  const span = document.createElement('span');
+  span.textContent = 'Processing';
+  div.appendChild(span);
+  pipboyMessages?.appendChild(div);
+  pipboyMessages?.scrollTo({ top: pipboyMessages.scrollHeight, behavior: 'smooth' });
+}
+
+async function sendToClaude(message) {
+  const apiUrl = API_BASE + '/api/chat';
+  try {
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message }),
+    });
+    if (!res.ok) throw new Error(await res.text() || `API error ${res.status}`);
+    const data = await res.json();
+    return data.reply || data.text || 'No response.';
+  } catch (err) {
+    return `[ SYSTEM ERROR ] Could not reach Vault AI. ${err.message}. Ensure API server is running.`;
+  }
+}
+
+if (pipboyForm) {
+  pipboyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = pipboyInput?.value?.trim();
+    if (!text) return;
+    addMessage(text, 'user', '[ YOU ]');
+    pipboyInput.value = '';
+    addLoadingMessage();
+    const reply = await sendToClaude(text);
+    document.getElementById('msg-loading')?.remove();
+    addMessage(reply, 'assistant', '[ ASSISTANT ]');
+  });
+}
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('[ TRANSMISSION RECEIVED ]\nYour briefing request has been logged. VAULT-TEC will make contact via secure channel.');
+    contactForm.reset();
+  });
+}
+  </script>
 </body>
 </html>
