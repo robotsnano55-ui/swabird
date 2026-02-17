@@ -1,0 +1,13 @@
+{
+  "name": "vault-tec-security",
+  "version": "1.0.0",
+  "description": "Fallout 2-style cybersecurity specialist site with Claude AI assistant",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "express": "^4.21.0"
+  }
+}

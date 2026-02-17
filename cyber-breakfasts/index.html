@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Breakfasts Koh Phangan | Private Tech Club for Founders</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1 class="logo">Business Breakfasts</h1>
+    <div class="nav-links">
+      <a href="#program">Program</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#apply">Apply</a>
+    </div>
+  </nav>
+
+  <main id="app">
+    <div id="hero"></div>
+    <div id="program"></div>
+    <div id="pricing"></div>
+    <div id="apply"></div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Business Breakfasts Koh Phangan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = ['hero', 'program', 'pricing', 'apply'];
+    sections.forEach(id => {
+      fetch(`sections/${id}.html`)
+        .then(r => r.text())
+        .then(html => document.getElementById(id).innerHTML = html)
+        .catch(err => console.error(`Failed to load ${id}:`, err));
+    });
+  </script>
+</body>
+</html>

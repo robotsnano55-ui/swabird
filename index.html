@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAULT-TEC SECURITY | Cybersecurity Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- CRT overlay -->
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span> VT-SEC <span class="logo-bracket">]</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">SERVICES</a>
+        <a href="#threats">THREAT LOG</a>
+        <a href="#about">PERSONNEL</a>
+        <a href="#contact">CONTACT</a>
+        <button class="btn-pipboy" id="open-pipboy">PIP-BOY ASSISTANT</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-frame">
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+      <div class="hero-content">
+        <p class="hero-tag">// VAULT-TEC SECURITY DIVISION //</p>
+        <h1>CYBERSECURITY SPECIALIST</h1>
+        <p class="hero-sub">Securing the digital wasteland since 2077</p>
+        <p class="hero-desc">
+          Penetration testing. Threat intelligence. Incident response.<br>
+          Your systems. Our vault.
+        </p>
+        <a href="#contact" class="btn-amber">REQUEST BRIEFING</a>
+      </div>
+    </div>
+    <div class="status-bar">
+      <span>[ ONLINE ]</span>
+      <span>|</span>
+      <span>SECURE CHANNEL</span>
+      <span>|</span>
+      <span id="vault-time">--:--:--</span>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">PENETRATION TESTING</div>
+          <p>Controlled breach simulations. Find vulnerabilities before raiders do.</p>
+          <span class="card-tag">[ RED TEAM ]</span>
+        </div>
+        <div class="card">
+          <div class="card-header">THREAT INTELLIGENCE</div>
+          <p>Monitor the wasteland. Early warning on emerging threat actors.</p>
+          <span class="card-tag">[ S.C.O.P.E ]</span>
+        </div>
+        <div class="card">
+          <div class="card-header">INCIDENT RESPONSE</div>
+          <p>When breach occurs. Contain. Eradicate. Recover. Document.</p>
+          <span class="card-tag">[ I.R.T ]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREAT LOG -->
+  <section id="threats" class="section section-alt">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> THREAT LOG <span class="bracket">]</span></h2>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span>THREAT_LOG.TXT</span>
+          <span class="terminal-status">READ ONLY</span>
+        </div>
+        <pre class="terminal-body">
+&gt; Initializing threat assessment...
+&gt; [OK] Ransomware activity: ELEVATED
+&gt; [OK] Phishing campaigns: PERSISTENT
+&gt; [OK] Supply chain attacks: INCREASING
+&gt; ----------------------------------------
+&gt; Recommendation: Request VAULT-TEC briefing.
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> PERSONNEL <span class="bracket">]</span></h2>
+      <div class="about-block">
+        <p>
+          Certified ethical hackers. Former red-team operators. Vault-certified.
+          We operate in controlled environments only. No collateral damage.
+        </p>
+        <p class="about-tag">[ CLEARANCE: VAULT-LEVEL ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-alt">
+    <div class="section-frame">
+      <h2><span class="bracket">[</span> REQUEST BRIEFING <span class="bracket">]</span></h2>
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <label>IDENTIFICATION</label>
+          <input type="text" name="name" placeholder="Enter full name" required />
+        </div>
+        <div class="form-row">
+          <label>SECURE CHANNEL</label>
+          <input type="email" name="email" placeholder="Enter email" required />
+        </div>
+        <div class="form-row">
+          <label>MESSAGE</label>
+          <textarea name="message" rows="4" placeholder="Describe your security needs..." required></textarea>
+        </div>
+        <button type="submit" class="btn-amber btn-block">TRANSMIT REQUEST</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>VAULT-TEC SECURITY | CYBERSECURITY SPECIALIST</p>
+      <p class="footer-tag">[ PROPRIETARY - CLASSIFIED ]</p>
+    </div>
+  </footer>
+
+  <!-- PIP-BOY CHAT WIDGET -->
+  <div class="pipboy-widget" id="pipboy-widget">
+    <div class="pipboy-frame">
+      <div class="pipboy-header">
+        <span>PIP-BOY ASSISTANT</span>
+        <span class="pipboy-sub">// Claude AI //</span>
+        <button class="pipboy-close" id="close-pipboy">&times;</button>
+      </div>
+      <div class="pipboy-body">
+        <div class="pipboy-messages" id="pipboy-messages">
+          <div class="msg system">
+            <span class="msg-label">[ SYSTEM ]</span>
+            VAULT-TEC AI consultant online. Ask about cybersecurity, threats, or how we can help.
+          </div>
+        </div>
+        <form class="pipboy-input-form" id="pipboy-form">
+          <input type="text" id="pipboy-input" placeholder="Type message..." autocomplete="off" />
+          <button type="submit" class="btn-send">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
