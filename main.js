@@ -3,6 +3,12 @@
  * Main script: clock, Pip-Boy chat, form handling
  */
 
+// API base: same-origin locally, Render URL when on GitHub Pages
+// Update this after deploying backend to Render
+const API_BASE = window.location.hostname.includes('github.io')
+  ? 'https://swabird-api.onrender.com'
+  : '';
+
 // === VAULT-TEC CLOCK ===
 function updateVaultTime() {
   const el = document.getElementById('vault-time');
@@ -74,7 +80,7 @@ function removeLoadingMessage() {
 }
 
 async function sendToClaude(message) {
-  const apiUrl = '/api/chat';
+  const apiUrl = API_BASE + '/api/chat';
   try {
     const res = await fetch(apiUrl, {
       method: 'POST',

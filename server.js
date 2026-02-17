@@ -1,7 +1,8 @@
 /**
- * VAULT-TEC SECURITY - Local dev server with Claude API
- * Run: npm install && ANTHROPIC_API_KEY=your_key node server.js
- * Then open http://localhost:3000
+ * SWABIRD - Local dev server
+ * Serves: Vault-Tec site, Business Breakfasts, Claude API
+ * Run: npm install && node server.js
+ * Windows API key: set ANTHROPIC_API_KEY=your_key
  */
 const express = require('express');
 const path = require('path');
@@ -9,6 +10,18 @@ const Anthropic = require('@anthropic-ai/sdk');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// CORS for GitHub Pages (static frontend) calling Render backend
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && (origin.includes('github.io') || origin.includes('localhost'))) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
@@ -59,17 +72,38 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Serve index.html at root
+// Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/cyber-breakfasts', (req, res) => {
+  res.sendFile(path.join(__dirname, 'cyber-breakfasts', 'index.html'));
+});
+
+app.get('/index.hml', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.hml'));
+});
+
 app.listen(PORT, () => {
-  console.log(`\n[ VAULT-TEC SECURITY ] Server online at http://localhost:${PORT}`);
+  const base = `http://localhost:${PORT}`;
+  console.log(`
+============================================================
+  SWABIRD - Server online at ${base}
+============================================================
+  Pages:
+    /                     → Vault-Tec (cybersecurity)
+    /cyber-breakfasts     → Business Breakfasts
+    /index.hml            → Original Cyber Breakfasts
+
+  API:  POST /api/chat    → Claude Pip-Boy Assistant
+------------------------------------------------------------`);
   if (!process.env.ANTHROPIC_API_KEY) {
-    console.warn('[ WARNING ] ANTHROPIC_API_KEY not set. Pip-Boy Assistant will not work.');
-    console.warn('Set it with: set ANTHROPIC_API_KEY=your_key (Windows) or export ANTHROPIC_API_KEY=your_key (Mac/Linux)\n');
+    console.log('  [ WARNING ] ANTHROPIC_API_KEY not set.');
+    console.log('  Pip-Boy Assistant will not work.');
+    console.log('  Windows: set ANTHROPIC_API_KEY=sk-ant-...');
   } else {
-    console.log('[ OK ] Claude API connected. Pip-Boy Assistant ready.\n');
+    console.log('  [ OK ] Claude API connected. Pip-Boy ready.');
   }
+  console.log('============================================================\n');
 });

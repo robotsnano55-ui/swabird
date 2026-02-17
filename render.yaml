@@ -1,0 +1,12 @@
+# Render Blueprint - deploy backend for Pip-Boy chat
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: swabird-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false  # Add in Render dashboard: Environment
