@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Breakfasts Koh Phangan | Ethical Hacking & AI Retreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+    <h1 class="text-2xl font-bold">Cyber Breakfasts</h1>
+    <div class="space-x-6 hidden md:block">
+      <a href="#program" class="hover:text-yellow-400">Program</a>
+      <a href="#about" class="hover:text-yellow-400">About</a>
+      <a href="#pricing" class="hover:text-yellow-400">Pricing</a>
+      <a href="#apply" class="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-yellow-300">Apply</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="text-center py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
+    <h2 class="text-5xl md:text-6xl font-extrabold mb-6">
+      Ethical Hacking & AI Retreat
+    </h2>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+      A 4-week immersive cybersecurity & AI program in Koh Phangan for entrepreneurs and digital nomads.
+    </p>
+    <a href="#apply" class="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-bold text-lg hover:bg-yellow-300 transition">
+      Reserve Your Spot
+    </a>
+  </section>
+
+  <!-- PROGRAM -->
+  <section id="program" class="py-20 px-6 max-w-6xl mx-auto">
+    <h3 class="text-4xl font-bold text-center mb-12">What You'll Learn</h3>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
+        <h4 class="text-2xl font-semibold mb-4">🛡 Ethical Hacking</h4>
+        <p class="text-gray-400">
+          Learn penetration testing fundamentals in controlled lab environments.
+        </p>
+      </div>
+
+      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
+        <h4 class="text-2xl font-semibold mb-4">🤖 AI Automation</h4>
+        <p class="text-gray-400">
+          Build GPT workflows, automate tasks, and create intelligent business systems.
+        </p>
+      </div>
+
+      <div class="bg-gray-900 p-8 rounded-2xl shadow-lg">
+        <h4 class="text-2xl font-semibold mb-4">🔐 Cybersecurity for Startups</h4>
+        <p class="text-gray-400">
+          Protect your business, data, and digital assets with real-world security strategies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREAKFAST FORMAT -->
+  <section class="bg-gray-900 py-20 px-6 text-center">
+    <h3 class="text-4xl font-bold mb-10">Business Breakfast Format</h3>
+    <div class="max-w-3xl mx-auto space-y-4 text-gray-300 text-lg">
+      <p>🥐 Networking Breakfast</p>
+      <p>🎤 60-Minute Live Workshop</p>
+      <p>💻 90-Minute Hands-On Lab</p>
+      <p>🧠 Mastermind & Discussion</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center">
+    <h3 class="text-4xl font-bold mb-8">Why Koh Phangan?</h3>
+    <p class="text-gray-400 text-lg leading-relaxed">
+      Surrounded by tropical beaches and a thriving digital nomad community,
+      Koh Phangan provides the perfect environment for deep learning,
+      networking, and transformation.
+    </p>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="bg-gray-900 py-20 px-6 text-center">
+    <h3 class="text-4xl font-bold mb-12">Investment</h3>
+
+    <div class="max-w-md mx-auto bg-gray-800 p-10 rounded-3xl shadow-xl">
+      <h4 class="text-3xl font-bold mb-4">$3,000</h4>
+      <p class="text-gray-400 mb-6">4-Week Immersive Program</p>
+      <ul class="text-gray-300 space-y-3 mb-8">
+        <li>✔ 22 Students Maximum</li>
+        <li>✔ Daily Workshops</li>
+        <li>✔ Hands-On Labs</li>
+        <li>✔ Networking Breakfasts</li>
+      </ul>
+      <a href="#apply" class="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300">
+        Apply Now
+      </a>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section id="apply" class="py-20 px-6 text-center max-w-4xl mx-auto">
+    <h3 class="text-4xl font-bold mb-8">Apply for the Next Cohort</h3>
+    <p class="text-gray-400 mb-8">
+      Limited to 22 participants. Secure your place in paradise.
+    </p>
+
+    <form class="grid gap-6 max-w-xl mx-auto">
+      <input type="text" placeholder="Full Name" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400">
+      <input type="email" placeholder="Email Address" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400">
+      <textarea placeholder="Tell us about yourself" rows="4" class="p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400"></textarea>
+      <button type="submit" class="bg-yellow-400 text-black py-4 rounded-xl font-bold hover:bg-yellow-300 transition">
+        Submit Application
+      </button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-950 py-10 text-center text-gray-500">
+    <p>© 2026 Cyber Breakfasts Koh Phangan. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
